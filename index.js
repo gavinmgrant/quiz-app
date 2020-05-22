@@ -293,33 +293,40 @@ function finalScore() {
     
     $('.final').show();
 
+    const perfect = [
+        'Wow, you have a perfect score!',
+        'You are an urban geography expert!'
+    ];
+
     const great = [
         'Great job!',
         'You know your cities around the globe!'
-      ];
+    ];
     
       const good = [
         'You did a good job, but can do better.',
         'Keep traveling and learn more cities!'
-      ];
+    ];
     
       const bad = [
         'This isn\'t your best work.',
         'Keep trying, you\'ll get there!'
-      ];
+    ];
     
-      if (score >= 8) {
+    if (score === 10) {
+        array = perfect;
+    } else if (score < 10 && score >= 8) {
         array = great;
-      } else if (score < 8 && score >= 5) {
+    } else if (score < 8 && score >= 5) {
         array = good;
-      } else {
+    } else {
         array = bad;
-      }
+    }
 
     return $('.final').html(
         `<h1>${array[0]}</h1><br>
-        <h2>Your score is ${score}0%.</h2><br>
-        <p>${array[1]}</p>
+        <h2>You scored a ${score}0% with ${score} out of 10 answered correctly.</h2><br>
+        <p>${array[1]} Click the restart button below to try again.</p>
         <button type="submit" class="restartButton button">Restart</button>`
       );
 }
