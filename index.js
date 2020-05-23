@@ -130,15 +130,6 @@ let questionNumber = 0;
 
 let incorrect = 0;
 
-// This is the HTML for the question text.
-
-
-// This is the HTML for the possible answers. 
-
-
-// This is the HTML for the final response.
-
-
 // This changes the photo.
 function changePhoto(index) {
     const imgSource = STORE[index].photo;
@@ -245,19 +236,16 @@ function submitAnswer() {
 
 // This renders the question form.
 function createForm(index) {
-    let formMaker = $(`
-        <form>
+    let formMaker = $(`<form>
             <fieldset>
                 <h2><legend class="questionText">${STORE[index].question}</legend></h2><br>
             </fieldset>
-        </form>    
-    `);
+        </form>`);
 
     let fieldSelector = $(formMaker).find('fieldset');
 
     STORE[index].answers.forEach(function (answerValue, answerIndex) {
-        $(`
-            <label for="${answerIndex}">
+        $(`<label for="${answerIndex}">
                 <input class="radio" type="radio" id="${answerIndex}" value="${answerValue}" name="answer" required>
                 <span>${answerValue}</span>
             </label>   
@@ -273,8 +261,8 @@ function createForm(index) {
 function correctAnswerHtml() {
     let correctAnswerText = `<h2>Correct!</h2><br>
     <p>Well done globetrotter.</p>
-    <button type="button" class="nextButton button">Next Question</button>
-    <button class="startoverButton">Start Over</button>`
+    <button type="button" class="nextButton button">Continue</button>
+    <button class="startoverButton">Start Over</button>`;
 
     return correctAnswerText;
 }
@@ -290,7 +278,7 @@ function correctAnswer() {
 function incorrectAnswerHtml() {
     let incorrectAnswerText = `<h2 class="wrong">That's the wrong city...</h2><br>
     <p>It's actually <b class="wrong">${STORE[questionNumber].correctAnswer}</b>. Don't worry, you'll get it next time.</p>
-    <button type="button" class="nextButton button">Next Question</button><button class="startoverButton">Start Over</button>`
+    <button type="button" class="nextButton button">Continue</button><button class="startoverButton">Start Over</button>`;
 
     return incorrectAnswerText;
 }
@@ -315,6 +303,16 @@ function nextQuestion() {
 
         return changePhoto(questionNumber); 
     });
+}
+
+// This is the HTML for the final response.
+function finalResponseHtml() {
+    let finalResponseText = `<h1>${array[0]}</h1><br>
+        <h2>You scored a ${score}0% with ${score} out of 10 answered correctly.</h2><br>
+        <p>${array[1]} Click the restart button below to try again.</p>
+        <button type="submit" class="restartButtonEnd button">Restart</button>`;
+
+    return finalResponseText;
 }
 
 // This calculates the final score and tells the user how they did.
@@ -355,12 +353,7 @@ function finalScore() {
         array = bad;
     }
 
-    return $('.final').html(
-        `<h1>${array[0]}</h1><br>
-        <h2>You scored a ${score}0% with ${score} out of 10 answered correctly.</h2><br>
-        <p>${array[1]} Click the restart button below to try again.</p>
-        <button type="submit" class="restartButtonEnd button">Restart</button>`
-      );
+    return $('.final').html(finalResponseHtml());
 }
 
 // This starts the quiz over during the quiz.
@@ -370,7 +363,7 @@ function restartQuiz() {
 
     resetStats();
 
-    alert('You are about to start the quiz over.');
+    alert('You are about to start the quiz over. There\'s no shame in that! Let\'s try this again.');
 
     $('.altBox').hide();
 
