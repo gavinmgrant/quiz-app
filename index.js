@@ -2,7 +2,7 @@
 
 const STORE = [
     {
-        question: 'This city is the largest in Latin America and is home to the largest number of Japanese people outside of Asia. Name this city.',
+        question: 'This city is the largest in Latin America and is home to the largest number of individuals of Japanese descent outside of Asia. Name this city.',
         answers: [
             'São Paulo',
             'Rio de Janeiro',
@@ -11,7 +11,7 @@ const STORE = [
         ],
         correctAnswer: 'São Paulo',
         photo: 'photos/sao-paulo.jpg',
-        photoAlt: 'A photograph of the São Paulo skyline at night.'
+        photoAlt: 'A photograph of a city skyline at night.'
     },
     {
         question: 'Tapatío is the colloquial term from someone or something from this city in Mexico. Name this city.',
@@ -23,7 +23,7 @@ const STORE = [
         ],
         correctAnswer: 'Guadalajara',
         photo: 'photos/guadalajara.jpg',
-        photoAlt: 'A photograph of a public square in Guadalajara.'
+        photoAlt: 'A photograph of a public square in Mexico.'
     },
     {
         question: 'This city was founded circa 600 BC as a Greek colony and now is the biggest port in France. Name this city.',
@@ -35,7 +35,7 @@ const STORE = [
         ],
         correctAnswer: 'Marseille',
         photo: 'photos/marseille.jpg',
-        photoAlt: 'A photograph of the Marseille skyline.'
+        photoAlt: 'A photograph of a French city\'s skyline.'
     },
     {
         question: 'This industrial port city in northern Spain is the de facto capital of Basque Country and home to this Frank Gehry-designed museum. Name this city.',
@@ -47,7 +47,7 @@ const STORE = [
         ],
         correctAnswer: 'Bilbao',
         photo: 'photos/bilbao.jpg',
-        photoAlt: 'A photograph of the Guggenheim Museum Bilbao along the Estuary of Bilbao.'
+        photoAlt: 'A photograph of the Guggenheim Museum in Spain next to a river.'
     },
     {
         question: 'This city sits on a mountain ridge on the Greek island of Santorini and shares the same name of the volcano which famously erupted on the island in the middle Bronze Age. Name this city.',
@@ -59,7 +59,7 @@ const STORE = [
         ],
         correctAnswer: 'Thera',
         photo: 'photos/thera.jpg',
-        photoAlt: 'A photograph looking at the Aegean Sea from a mountain ridge in Thera.'
+        photoAlt: 'A photograph looking at the Aegean Sea from a mountain ridge in Santorini.'
     },
     {
         question: 'This seaport city in north-eastern Egypt sits at the south terminus of a famous canal. Name this city.',
@@ -71,7 +71,7 @@ const STORE = [
         ],
         correctAnswer: 'Suez',
         photo: 'photos/suez.jpg',
-        photoAlt: 'A photograph of two boats in the Suez canal.'
+        photoAlt: 'A photograph of two boats in a river.'
     },
     {
         question: 'This city in Morocco was founded in 1062 and is home to Jemaa el-Fnaa, which is one of the best-known squares in Africa. Name this city.',
@@ -83,7 +83,7 @@ const STORE = [
         ],
         correctAnswer: 'Marrakesh',
         photo: 'photos/marrakesh.jpg',
-        photoAlt: 'A photograph of the vast Jemaa el-Fnaa square and marketplace in Marrakesh.'
+        photoAlt: 'A photograph of the vast Jemaa el-Fnaa square and marketplace.'
     },
     {
         question: 'This city is also known as Bombay and is the financial, commerical, and entertainment capital of India. Name this city.',
@@ -95,7 +95,7 @@ const STORE = [
         ],
         correctAnswer: 'Mumbai',
         photo: 'photos/mumbai.jpg',
-        photoAlt: 'A photograph of the city and railroad in Mumbai.'
+        photoAlt: 'A photograph of the city and railroad in India.'
     },
     {
         question: 'This city is the capital of the People\'s Republic of China and is home Peking University and Tsinghua University. Name this city.',
@@ -107,7 +107,7 @@ const STORE = [
         ],
         correctAnswer: 'Beijing',
         photo: 'photos/beijing.jpg',
-        photoAlt: 'A photograph of Beijing skyline at night.'
+        photoAlt: 'A photograph of a major Chinese city skyline at night.'
     },
     {
         question: 'This city is the capital of Indonesia and sits on the northwest coast of the world\'s most populous island of Java. Name this city.',
@@ -119,14 +119,25 @@ const STORE = [
         ],
         correctAnswer: 'Jakarta',
         photo: 'photos/jakarta.jpg',
-        photoAlt: 'A photograph looking down at a busy street in Jakarta at night.'
+        photoAlt: 'A photograph looking down at a busy street in Indonesia at night.'
     }
 ];
 
 // These are the variables to store the quiz score and question number.
 let score = 0;
+
 let questionNumber = 0;
+
 let incorrect = 0;
+
+// This is the HTML for the question text.
+
+
+// This is the HTML for the possible answers. 
+
+
+// This is the HTML for the final response.
+
 
 // This changes the photo.
 function changePhoto(index) {
@@ -143,7 +154,9 @@ function createQuestion() {
         return createForm(questionNumber);
     } else {
         $('.questionArea').hide();
+
         finalScore();
+
         $('.questionNumber').text(10);
     }
 }
@@ -173,9 +186,13 @@ function updateQuestionNumber() {
 function resetStats() {
     score = 0;
 
+    incorrect = 0;
+
     questionNumber = 0;
 
     $('.score').text(0);
+
+    $('.incorrect').text(0);
 
     $('.questionNumber').text(0);
 }
@@ -245,31 +262,42 @@ function createForm(index) {
                 <span>${answerValue}</span>
             </label>   
         `).appendTo(fieldSelector);
-        });
+    });
     
     $(`<button type="submit" class="submitButton button">Submit</button>`).appendTo(fieldSelector);
 
     return formMaker;
 }
 
+// This is the HTML response for a correct answer.
+function correctAnswerHtml() {
+    let correctAnswerText = `<h2>Correct!</h2><br>
+    <p>Well done globetrotter.</p>
+    <button type="button" class="nextButton button">Next Question</button>
+    <button class="startoverButton">Start Over</button>`
+
+    return correctAnswerText;
+}
+
 // If the answer is correct, this responds and adds one to the score.
 function correctAnswer() {
-    $('.response').html(
-        `<h2>Correct!</h2><br>
-        <p>Well done globetrotter.</p>
-        <button type="button" class="nextButton button">Next</button>`
-    );
+    $('.response').html(correctAnswerHtml());
 
     updateScore();
 }
 
+// This is the HTML response for an incorrect answer.
+function incorrectAnswerHtml() {
+    let incorrectAnswerText = `<h2 class="wrong">That's the wrong city...</h2><br>
+    <p>It's actually <b class="wrong">${STORE[questionNumber].correctAnswer}</b>. Don't worry, you'll get it next time.</p>
+    <button type="button" class="nextButton button">Next Question</button><button class="startoverButton">Start Over</button>`
+
+    return incorrectAnswerText;
+}
+
 // If the anwer is wrong, this responds with the correct answer.
 function wrongAnswer() {
-    $('.response').html(
-        `<h2 class="wrong">That's the wrong city...</h2><br>
-        <p>It's actually <b class="wrong">${STORE[questionNumber].correctAnswer}</b>. Don't worry, you'll get it next time.</p>
-        <button type="button" class="nextButton button">Next</button>`
-    );
+    $('.response').html(incorrectAnswerHtml());
 
     incorrectScore();
 }
@@ -278,9 +306,13 @@ function wrongAnswer() {
 function nextQuestion() {
     $('.response').on('click', '.nextButton', function (event) {
         $('.altBox').hide();
+
         $('.questionArea').show();
+
         updateQuestionNumber();
+
         $('.questionArea form').replaceWith(createQuestion());
+
         return changePhoto(questionNumber); 
     });
 }
@@ -303,12 +335,12 @@ function finalScore() {
         'You know your cities around the globe!'
     ];
     
-      const good = [
+    const good = [
         'You did a good job, but can do better.',
         'Keep traveling and learn more cities!'
     ];
     
-      const bad = [
+    const bad = [
         'This isn\'t your best work.',
         'Keep trying, you\'ll get there!'
     ];
@@ -327,18 +359,43 @@ function finalScore() {
         `<h1>${array[0]}</h1><br>
         <h2>You scored a ${score}0% with ${score} out of 10 answered correctly.</h2><br>
         <p>${array[1]} Click the restart button below to try again.</p>
-        <button type="submit" class="restartButton button">Restart</button>`
+        <button type="submit" class="restartButtonEnd button">Restart</button>`
       );
 }
 
-// This restarts the quiz.
+// This starts the quiz over during the quiz.
 function restartQuiz() {
-    $('.final').on('click', '.restartButton', function (event) {
+    $('.bottom').on('click', '.startoverButton', function (event) {
     event.preventDefault();
+
     resetStats();
+
+    alert('You are about to start the quiz over.');
+
     $('.altBox').hide();
+
     $('.startQuiz').show();
-  });
+
+    const imgSource = "photos/globe.jpg";
+
+    $('.photoArea img').attr('src', imgSource);
+
+    $('.questionArea form').remove();
+
+    });
+}
+
+// This restarts the quiz at the end.
+function restartQuizFinal() {
+    $('.final').on('click', '.restartButtonEnd', function (event) {
+    event.preventDefault();
+
+    resetStats();
+
+    $('.altBox').hide();
+
+    $('.startQuiz').show();
+    });
 }
 
 // This runs all of the functions above.
@@ -348,6 +405,7 @@ function runIt() {
     submitAnswer();
     nextQuestion();
     restartQuiz();
+    restartQuizFinal();
 }
 
 $(runIt);

@@ -34,6 +34,10 @@ header h1 {
     padding: 5px;
 }
 
+.startoverButton {
+    background-color: #C11E25;
+}
+
 .incorrectColor {
     color: #999999;
 }
@@ -71,7 +75,7 @@ button {
     color: #EEEEEE;
     background-color: #8F5B34;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 24px;
+    font-size: 1.2em;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -84,6 +88,10 @@ button {
 
 button:hover {
     background-color: #8D9B6A;
+}
+
+.startoverButton {
+    width: 30%;
 }
 
 .wrong {
