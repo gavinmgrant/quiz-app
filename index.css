@@ -46,7 +46,7 @@ header h1 {
 }
 
 .incorrectColor {
-    color: #c89666;
+    color: #8e7d6c;
 }
 
 main {
@@ -78,6 +78,7 @@ input[type=radio] {
     height: 1.75em;
     vertical-align: middle;
     margin: 0px;
+    cursor: pointer;
 }
 
 button {
@@ -107,7 +108,7 @@ button:hover,
 }
 
 .wrong {
-    color: #edd1b4;
+    color: #f6e7d9;
 }
 
 @media screen and (min-width: 320px) {

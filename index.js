@@ -277,7 +277,7 @@ function correctAnswer() {
 // This is the HTML response for an incorrect answer.
 function incorrectAnswerHtml() {
     let incorrectAnswerText = `<h2 class="wrong">That's the wrong city...</h2><br>
-    <p>It's actually <b class="wrong">${STORE[questionNumber].correctAnswer}</b>. Don't worry, you'll get it next time.</p>
+    <p>It's actually <span class="wrong">${STORE[questionNumber].correctAnswer}</span>. Don't worry, you'll get it next time.</p>
     <button type="button" class="nextButton button">Continue</button><button class="startoverButton">Start Over</button>`;
 
     return incorrectAnswerText;
