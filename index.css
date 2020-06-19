@@ -18,7 +18,7 @@ html {
 
 body {
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1em;
+    font-size: 18px;
     color: #e1b382;
     padding: 0px;
     background: none;
@@ -42,7 +42,6 @@ fieldset {
 
 header h1 {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.7em;
     padding: 5px;
 }
 
@@ -86,7 +85,7 @@ button {
     background-color: #12343b;
     border: 1px solid #e1b382;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1.2em;
+    font-size: 18px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -125,10 +124,6 @@ button:hover,
 }
 
 @media screen and (min-width: 600px) {
-    body {
-        font-size: 1.1em;
-    }
-
     header li {
         display: inline-block;
         padding: 10px;
@@ -141,10 +136,6 @@ button:hover,
 }
 
 @media screen and (min-width: 840px) {
-    body {
-        font-size: 1.2em;
-    }
-    
     header {
         display: flex;
         justify-content: space-between;
