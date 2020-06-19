@@ -2,21 +2,33 @@
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0px;
-  }
+}
+
+html {
+    margin: 0;
+    height: 100%;
+    background: url("photos/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
 body {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1em;
-    color: #444444;
-    background-color: #E8DFE0;
+    color: #e1b382;
     padding: 0px;
+    background: none;
 }
 
 header {
     display: block;
     width: 90%;
-    background-color: #34558b;
-    color: #EEEEEE;
+    background-color: #12343b;
+    color: #e1b382;
     padding: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -34,12 +46,8 @@ header h1 {
     padding: 5px;
 }
 
-.startoverButton {
-    background-color: #C11E25;
-}
-
 .incorrectColor {
-    color: #999999;
+    color: #c89666;
 }
 
 main {
@@ -55,7 +63,7 @@ img {
 
 .questionArea, .answersArea, .bottom {
     padding: 20px;
-    background-color: #DAB692;
+    background-color: #12343b;
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -74,8 +82,9 @@ input[type=radio] {
 }
 
 button {
-    color: #EEEEEE;
-    background-color: #8F5B34;
+    color: #e1b382;
+    background-color: #12343b;
+    border: 1px solid #e1b382;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.2em;
     margin-left: auto;
@@ -85,24 +94,21 @@ button {
     padding: 15px;
     width: 100%;
     border-radius: 5px;
-    border: none;
 }
 
-button:hover {
-    background-color: #8D9B6A;
-}
-
+button:hover,
 .startoverButton:hover {
-    background-color: #EEEEEE;
-    color: #C11E25;
+    color: #12343b;
+    background-color: #e1b382;
+    border: 1px solid #e1b382;
 }
 
 .startoverButton {
-    width: 40%;
+    width: 50%;
 }
 
 .wrong {
-    color: #C11E25;
+    color: #edd1b4;
 }
 
 @media screen and (min-width: 320px) {
@@ -137,7 +143,6 @@ button:hover {
 @media screen and (min-width: 840px) {
     body {
         font-size: 1.2em;
-        background-color: #E8DFE0;
     }
     
     header {
