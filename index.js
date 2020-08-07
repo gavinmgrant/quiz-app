@@ -317,7 +317,7 @@ function finalResponseHtml() {
 
 // This calculates the final score and tells the user how they did.
 function finalScore() {
-    const imgSource = "photos/globe.jpg";
+    const imgSource = "photos/hong-kong.jpg";
 
     $('.photoArea img').attr('src', imgSource);
     
@@ -363,13 +363,13 @@ function restartQuiz() {
 
     resetStats();
 
-    alert('You are about to start the quiz over. There\'s no shame in that! Let\'s try this again.');
+    alert('You are about to start the quiz over. There\'s no shame in that! Let\'s try this again.')
 
     $('.altBox').hide();
 
     $('.startQuiz').show();
 
-    const imgSource = "photos/globe.jpg";
+    const imgSource = "photos/hong-kong.jpg";
 
     $('.photoArea img').attr('src', imgSource);
 
